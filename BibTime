@@ -1,0 +1,18 @@
+# python
+from datetime import datetime
+import csv
+from datetime import date
+todays_date = date.today()
+FileName = "BibTime" + str(todays_date.year) + str(todays_date.month) +str(todays_date.day)
+BiBNum = False
+with open(FileName + ".csv", "a") as wr:
+    csv_writer = csv.writer(wr, quoting=csv.QUOTE_NONE, delimiter = " ", escapechar = " ")
+    while True:
+        BibNum = input("please input the bib number ..., Hit enter to exit")
+        if BibNum:
+            now = datetime.now()
+            print(BibNum)
+            print(now)
+            csv_writer.writerow([BibNum, now])
+        else:
+            break
