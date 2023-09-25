@@ -8,11 +8,12 @@ BiBNum = False
 with open(FileName + ".csv", "a") as wr:
     csv_writer = csv.writer(wr, quoting=csv.QUOTE_NONE, delimiter = " ", escapechar = " ")
     while True:
-        BibNum = input("please input the bib number ..., Hit enter to exit")
-        if BibNum:
+        BibNum = input("Input a bib number and hit enter. Input xxxx to exit")
+        if BibNum != "xxxx":
             now = datetime.now()
             print(BibNum)
             print(now)
             csv_writer.writerow([BibNum, now])
+            wr.flush()
         else:
             break
